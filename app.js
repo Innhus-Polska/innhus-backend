@@ -9,17 +9,18 @@ const cors = require('cors');
 const socketIO = require('socket.io');
 const ch = require('chalk');
 const path = require('path');
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
 
 const app = express();
 
 // const privkey = fs.readFileSync('/etc/letsencrypt/live/app.widoknazdrowie.pl/privkey.pem');
 // const certificate = fs.readFileSync('/etc/letsencrypt/live/app.widoknazdrowie.pl/fullchain.pem');
-const server = https.createServer({
-    // key: privkey,
-    // cert: certificate
-}, app);
+const server = http.createServer(app);
+// const server = createServer({
+//     // key: privkey,
+//     // cert: certificate
+// }, app);
 
 const io = socketIO(server);
 
@@ -85,7 +86,7 @@ mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTop
 server.listen(process.env.PORT || 8082, () => {
     process.env.NODE_ENV
         ? console.log(
-            ch.bgGreen(`Server on run in ${process.env.NODE_ENV} mode`)
+            ch.bgGreen(`Server on run in ${process.env.NODE_ENV} mode on port ${process.env.PORT}`)
         )
         : console.log(
             ch.bgRed(
