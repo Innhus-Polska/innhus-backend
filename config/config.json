@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "wnz",
+    "password": "1234",
+    "database": "innhus_dev",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "widoknazdrowie_test",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "widoknazdrowie_prod",
+    "host": "167.71.49.142",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
